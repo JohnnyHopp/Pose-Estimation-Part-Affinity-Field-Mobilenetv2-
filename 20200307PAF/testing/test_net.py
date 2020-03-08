@@ -60,12 +60,13 @@ def test_net(data_loader, model, opts):
             final = time.time()-start
             runtimes += [final]
             image_id = dataset.indices[i]
+            print(image_id)
             if len(candidate) > 0:
                 candidate = candidate[:,:3]  
             vis_path = os.path.join(opts.saveDir, 'viz')
             if not os.path.exists(vis_path):
                 os.makedirs(vis_path)
-            cv2.imwrite(vis_path+'/{}.jpg'.format(image_id), to_plot)
+            cv2.imwrite(vis_path+'/{}'.format(image_id), to_plot)
 
 
     print ("All images finished")
